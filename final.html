@@ -1,0 +1,219 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine ❤️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:"Poppins", sans-serif;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.heart{
+  position:absolute;
+  color:#ff4d6d;
+  animation:float 7s linear infinite;
+  opacity:.5;
+}
+@keyframes float{
+  0%{transform:translateY(0); opacity:0}
+  20%{opacity:1}
+  100%{transform:translateY(-120vh); opacity:0}
+}
+
+
+.card{
+  background:#fff;
+  width:380px;
+  padding:30px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
+  animation:pop .6s ease;
+}
+@keyframes pop{
+  from{transform:scale(.85); opacity:0}
+  to{transform:scale(1); opacity:1}
+}
+
+
+button{
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  padding:14px 28px;
+  font-size:16px;
+  border-radius:30px;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(255,77,109,.45);
+  transition:.3s;
+  margin:8px;
+}
+button:hover{transform:scale(1.08)}
+
+.no{
+  background:#f1f1f1;
+  color:#666;
+  position:relative;
+}
+
+
+.dog{
+  width:130px;
+  height:130px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  position:relative;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+.eye{
+  width:12px;
+  height:12px;
+  background:#333;
+  border-radius:50%;
+  position:absolute;
+  top:45px;
+}
+.eye.left{left:40px}
+.eye.right{right:40px}
+.nose{
+  width:14px;
+  height:10px;
+  background:#333;
+  border-radius:50%;
+  position:absolute;
+  top:65px;
+  left:50%;
+  transform:translateX(-50%);
+}
+.rose{
+  position:absolute;
+  bottom:-10px;
+  right:-10px;
+  font-size:26px;
+}
+
+
+h1{
+  color:#ff4d6d;
+  font-family:cursive;
+}
+.poem{
+  border:2px dashed #ff7a9c;
+  padding:18px;
+  border-radius:18px;
+  color:#ff4d6d;
+  font-size:16px;
+  line-height:1.6;
+  font-style:italic;
+}
+
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<script>
+for(let i=0;i<25;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(12+Math.random()*18)+"px";
+  h.style.animationDelay=Math.random()*5+"s";
+  document.body.appendChild(h);
+}
+
+function moveNo(){
+  const btn=document.querySelector(".no");
+  btn.style.transform =
+    `translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
+}
+
+function showPage(id){
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page5").classList.add("hidden");
+  document.getElementById("page6").classList.add("hidden");
+  document.getElementById(id).classList.remove("hidden");
+}
+</script>
+
+<div class="card">
+
+
+<div id="page1">
+  <h1>Hey Sanjucta 💖</h1>
+  <p style="font-size:20px">
+    Will you be my<br><b>Valentine?</b> 💘
+  </p>
+
+  <button onclick="showPage('page5')">Yes❤️</button>
+  <button class="no" onmouseover="moveNo()">No🙈</button>
+  <h1>Saying No is cringe :/</h1>
+</div>
+
+
+<div id="page5" class="hidden">
+  <div class="dog">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="rose">🌹</div>
+  </div>
+
+  <div class="poem">
+    Yoo well its been many days since we have talked nicely and (I miss it very much).<br>
+    I know we both are busy cuz of exams and everything.<br>
+    But i just wanted say is dont't worry about anything everythings fine👍 do well in your exams and don't stress, don't take any tension by thinking why am I(Me) Not you messaging you like the normal days its cuz of metric Mobile jyada chala nhi rha hun.<br>
+    And remember even if no one supports you i will its a promise even if you don't care also i'll still do it.<br>
+    All the best for your Exams do well in it❤️🫶.
+  </div>
+
+  <button onclick="showPage('page6')">Next 💖</button>
+</div>
+
+<div id="page6" class="hidden">
+  <div class="dog">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="rose">💝</div>
+  </div>
+
+  <div class="poem">
+    At last i just wanted to say is I do care about you,<br>
+    and I Do love you very much Sanjucta,<br>
+    and i'll always do it dosen't matter if you care or not.<br>
+ Btw i wanted to ask you actually i should  have asked you before.....<br>
+ I know we both can't meet cuz of exams but still.......<br>
+ </div>
+  <button onclick="showPage('page7')">One Last Thing 💍</button>
+</div>
+
+<div id="page7" class="hidden">
+  <h1>Will you be mine forever? 💍</h1>
+  <p style="font-size:18px;color:#ff4d6d">
+    Not just today…<br>but every day ❤️
+  </p>
+  <h1>Happy Valentine’s Day 💖</h1>
+</div>
+
+</div>
+
+</body>
+</html>
